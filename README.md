@@ -1,3 +1,8 @@
+# A faire
+Vous pouvez cloner ce git, et poster vos corrections. Ceux pour qui les exercices sont trop faciles peuvent se contenter de relire et commenter les corrections des autres.
+
+Vous pouvez aussi ajouter des commentaires dans ce README.
+
 # 1-basics
 [AffranchissementLettres.java](./1-basics/AffranchissementLettres.java)
 
@@ -59,4 +64,3 @@
 [ChallengeListTest.java](./4-tdd/ChallengeListTest.java)
 
 [Main.java](././Main.java)
-
