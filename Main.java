@@ -29,7 +29,7 @@ public class Main {
 		if (f.isDirectory()) {
 			writer.println("# "+f.getName());
 		}
-		else {
+		else if(f.getName().endsWith(".java")) {
 //		f.renameTo(new File(f.getAbsolutePath().replaceAll("Copie de ", "")));
 			writer.println("["+f.getName()+"](./"+dirName+"/"+ f.getName()+")");
 		}
@@ -38,7 +38,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
-		writer =  new PrintWriter("correction.md", "UTF-8");
+		writer =  new PrintWriter("README.md", "UTF-8");
 		list(new File("./"), true);
 		writer.close();
 
