@@ -1,5 +1,9 @@
 # A faire
-Vous pouvez cloner ce git, et poster vos corrections. Ceux pour qui les exercices sont trop faciles peuvent se contenter de relire et commenter les corrections des autres.
+Vous pouvez cloner ce git, et poster vos corrections. N'hésitez pas à faire part de vos améliorations.
+
+Un bon code est un code qui fonctionne, qui est lisible facilement (bons choix de noms de variables, structuration en méthodes) et qui est optimal (moins de calcul, et éventuellement code plus court).
+
+Ceux pour qui les exercices sont trop faciles devraient se contenter de relire et commenter les corrections des autres.
 
 Vous pouvez aussi ajouter des commentaires dans ce README.
 
