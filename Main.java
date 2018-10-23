@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
 
@@ -12,11 +14,19 @@ public class Main {
 	 * @param recursive : pour faire un parcours recursif
 	 */
 	public static void list(File dirName, boolean recursive) {
+		File[] fileArray = dirName.listFiles();
+		Arrays.sort(fileArray, new Comparator<File>() {
 
-		for (File f : dirName.listFiles()) {
+			@Override
+			public int compare(File o1, File o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
+
+		for (File f : fileArray)  {
 			process(dirName.getName(), f);
 
-			if (recursive && f.isDirectory()) {
+			if (recursive && f.isDirectory()&& !f.getName().startsWith(".")) {
 				list(f, true);
 			}
 
@@ -26,7 +36,7 @@ public class Main {
 	}
 
 	public static void process(String dirName, File f) {
-		if (f.isDirectory()) {
+		if (f.isDirectory()&& !f.getName().startsWith(".")) {
 			writer.println("# "+f.getName());
 		}
 		else if(f.getName().endsWith(".java")) {
