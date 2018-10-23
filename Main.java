@@ -31,7 +31,7 @@ public class Main {
 		}
 		else if(f.getName().endsWith(".java")) {
 //		f.renameTo(new File(f.getAbsolutePath().replaceAll("Copie de ", "")));
-			writer.println("["+f.getName()+"](./"+dirName+"/"+ f.getName()+")");
+			writer.println("["+f.getName()+"](./"+dirName+"/"+ f.getName()+")\n");
 		}
 	}
 
