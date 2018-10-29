@@ -3,14 +3,6 @@ import java.util.Scanner;
 
 public class AffranchissementLettres {
 
-
-/****************** REMARQUES JOSSELIN *****************
-Il serait mieux de créer une variable prix (double),
-afin de séparer les calculs de l'affichage.
-
-Dans chaque cas, on calcule prix et uniquement à la fin,
-on affiche.
-****************** REMARQUES JOSSELIN *****************/
 	static Scanner saisie;
 
 	public static void main(String[] args) {
