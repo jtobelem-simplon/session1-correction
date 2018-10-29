@@ -11,41 +11,90 @@ afin de séparer les calculs de l'affichage.
 Dans chaque cas, on calcule prix et uniquement à la fin,
 on affiche.
 ****************** REMARQUES JOSSELIN *****************/
-  public static void main(String[] args) {
-    Scanner saisie = new Scanner(System.in);
+	static Scanner saisie;
 
-    System.out.print("Quel est le poids de votre lettre ?");
-    int poidsLettre =  saisie.nextInt();
-    System.out.print("Service Prioritaire (1), Service Economique (2), Choisissez 1 ou 2 : ");
-    int tarif = saisie.nextInt();
+	public static void main(String[] args) {
 
+		saisie = new java.util.Scanner(System.in);
 
-    if (poidsLettre <= 20 && tarif == 1) {
+		int poids = 0;
+		int service = 0;
+		double prix = 0.00;
 
-      System.out.println("Votre affranchissement coute : 0,6 euros.");
+		poidsLettre(poids); // SAISIE POIDS LETTRE
 
-    } else if (poidsLettre <= 20 && tarif ==2) {
+		if (poids > 100) { // SI LETTRE TROP LOURDE
+			System.out.println("Allez affranchir votre courrier dans un bureau de poste.");
+		}
 
-      System.out.println("votre affranchissement coute : 0,55 euros.");
+		else {
+			choixService(service); // SAISIE CHOIX SERVICE
+			// AFFICHAGE PRIX EN FONCTION POIDS ET SERVICE
+			System.out.println("Le prix de l'affranchissement est de " + calculPrix(poids, service, prix) + " €.");
+		}
 
-    }
+		saisie.close();
+	}
 
-    if (poidsLettre < 20 && poidsLettre <50 && tarif ==1){
-      System.out.println("Votre affranchissement coute : 1 euros.");
+	public static int poidsLettre(int poids) {
+		
+		while (poids <= 0) { // OBLIGE UNE ENTREE POSITIVE
+			
+			System.out.print("Entrez le poids de la lettre en gramme : ");
+			poids = saisie.nextInt();
+			
+		}
+		return poids;
+	}
 
-    } else if  (poidsLettre < 20 && poidsLettre <50 && tarif ==2) {
+	public static int choixService(int service) {
+		
+		while (service != 1 && service != 2) { // OBLIGE UN CHOIX ENTRE 1 ET 2
+			
+			System.out.print("Tapez 1 pour le service prioritaire\nou 2 pour le service économique : ");
+			service = saisie.nextInt();
+			
+		}
+		return service;
+	}
 
-      System.out.println("Votre Affranchissment coute : 0,78 euros.");
-    }
+	public static double calculPrix(int poids, int service, double prix) {
 
-    if (poidsLettre <= 51 && poidsLettre <= 100 && tarif ==1) {
-      System.out.println ("Votre affrancihssement coute : 1,45 euros.");
-    } else if (poidsLettre <= 51 && poidsLettre <= 100 && tarif ==2) {
-      System.out.println ("Votre affranchissement coute : 1 euros");
-    }
+		if (poids <= 20) {
+			
+			if (service == 1) {
+				prix = 0.60;
+			}
+			
+			else {
+				prix = 0.55;
+			}
+		}
 
-    if (poidsLettre > 100) {
-      System.out.println ("Allez donc voir à la Poste !!");
-    }
-  }
+		if (poids > 20 && poids <= 50) {
+			
+			if (service == 1) {
+				prix = 1.00;
+			}
+			
+			else {
+				prix = 0.78;
+			}
+
+		}
+
+		if (poids > 50 && poids <= 100) {
+			
+			if (service == 1) {
+				prix = 1.45;
+			} 
+			
+			else {
+				prix = 1.00;
+			}
+
+		}
+		return prix;
+	}
+
 }
