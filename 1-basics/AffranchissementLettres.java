@@ -7,7 +7,7 @@ public class AffranchissementLettres {
 
 	public static void main(String[] args) {
 
-		saisie = new java.util.Scanner(System.in);
+		saisie = new Scanner(System.in);
 
 		int poids = 0;
 		int service = 0;
